@@ -1,0 +1,12 @@
+*.class
+*.iml
+target/
+.idea/
+*.log
+.project
+.settings/
+.classpath
+/build/
+frontend/build/tmp/
+frontend/node_modules/
+*.DS_Store
