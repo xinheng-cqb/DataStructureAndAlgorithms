@@ -13,10 +13,13 @@ public class Node<T extends Comparable<T>> {
 	private Node<T> rightNode;
 
 	public Node(T value) {
-		this.value = value;
+		this(null, null, value);
 	}
 
-	public void displayNode() {
+	public Node(Node<T> leftNode, Node<T> rightNode, T value) {
+		this.setLeftNode(leftNode);
+		this.setRightNode(rightNode);
+		this.setValue(value);
 	}
 
 	public T getValue() {
@@ -27,12 +30,43 @@ public class Node<T extends Comparable<T>> {
 		this.value = value;
 	}
 
+	public int getHeight() {
+		return height;
+	}
+
+	/**
+	 * @introduce: 更新当前节点树的高度值
+	 * @return void
+	 */
+	public void updateHeight() {
+		this.height = height(this);
+	}
+
+	/**
+	 * @introduce: 递归计算某个节点的高度
+	 * @param node
+	 * @return int
+	 */
+	private int height(Node<T> node) {
+		if (node == null) {
+			return 0;
+		}
+		int leftHeight = height(node.getLeftNode());
+		int rightHeight = height(node.getRightNode());
+		if (leftHeight > rightHeight) {
+			return leftHeight + 1;
+		} else {
+			return rightHeight + 1;
+		}
+	}
+
 	public Node<T> getLeftNode() {
 		return leftNode;
 	}
 
 	public void setLeftNode(Node<T> leftNode) {
 		this.leftNode = leftNode;
+		updateHeight();
 	}
 
 	public Node<T> getRightNode() {
@@ -41,6 +75,7 @@ public class Node<T extends Comparable<T>> {
 
 	public void setRightNode(Node<T> rightNode) {
 		this.rightNode = rightNode;
+		updateHeight();
 	}
 
 	@Override

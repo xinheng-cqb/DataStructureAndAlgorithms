@@ -17,7 +17,8 @@ public class Client {
 		tree.insert(new TestClass(5));
 		tree.insert(new TestClass(9));
 		tree.insert(new TestClass(0));
-
+		// tree.insert(new TestClass(7));
+		tree.delete(new TestClass(6));
 		tree.preOrder(tree.getRoot());
 		System.out.println("--------------");
 		tree.inOrder(tree.getRoot());

@@ -155,6 +155,8 @@ public class Tree<T extends Comparable<T>> {
 		}
 		if (directPostNode != delNode.getRightNode()) {
 			parentNode.setLeftNode(directPostNode.getRightNode());
+		} else {
+			delete(directPostNode.getValue());
 		}
 		return directPostNode;
 	}
