@@ -76,7 +76,7 @@ public class Tree<T extends Comparable<T>> {
 			if (node.getLeftNode() != null) {
 				// 判断左右的节点高度差是不是等于2，如果是就需要进行旋转
 				if (node.getLeftNode().getHeight() - node.getRightNode().getHeight() == 2) {
-					// 判断是要单旋还是双旋，判断的依据要插入的值和该节点右子节点比较，大就是单旋，小就是双旋
+					// 判断是要单旋还是双旋，判断的依据左子树的右子树和左子树的左子树比较，大就是双旋，小就是单旋
 					if (node.getLeftNode().getRightNode().getHeight() > node.getLeftNode().getLeftNode().getHeight()) {
 						node = doubleRotateWithLeft(node);
 					} else {

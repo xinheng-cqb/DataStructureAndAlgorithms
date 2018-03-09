@@ -1,4 +1,4 @@
-package structure.AVL;
+package structure.RBT;
 
 /**
  * @author xinheng-cqb
